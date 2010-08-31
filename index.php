@@ -16,8 +16,8 @@
 				function random_cube()
 				{
 					var width = Math.round(Math.random() * 80 + 1);
-					var start_x = Math.round(Math.random() * 800 + 1);
-					var start_y = Math.round(Math.random() * 800 + 1);
+					var start_x = Math.round(Math.random() * 400 + 1);
+					var start_y = Math.round(Math.random() * 400 + 1);
 
 					var r = Math.round(Math.random() * 255);
 					var g = Math.round(Math.random() * 255);
@@ -44,7 +44,7 @@
 		</script>
     </head>
     <body>
-        <canvas id="field" width="800px" height="800px"></canvas>
+        <canvas id="field" width="400px" height="400px"></canvas>
 
     </body>
 </html>

@@ -14,21 +14,21 @@ function Color(r, g, b, a)
 		return color_string;
 	};
 
-	//Get a lighter version of the color by adding a value to each component color
-	color.getLighter = function(percent) {
-		var add = parseInt(255 * percent / 100, 10);
+	//Get a lighter/darker version of the color by a percentage
+	color.getShade = function(percent) {
+		var ratio = (100 + percent)/100;
 
-		var r = this.r + add;
+		var r = Math.round(this.r * ratio);
 		if (r > 255) {
 			r = 255;
 		}
 
-		var g = this.g + add;
+		var g = Math.round(this.g * ratio);
 		if (g > 255) {
 			g = 255;
 		}
 
-		var b = this.b + add;
+		var b = Math.round(this.b * ratio);
 		if (b > 255) {
 			b = 255;
 		}
@@ -37,31 +37,14 @@ function Color(r, g, b, a)
 		var lighter = new Color(r, g, b, this.a);
 
 		return lighter;
+	}
+	
+	color.getLighter = function(percent) {
+		return this.getShade(percent);
 	};
 
-	//Get a darker version of the color by subtracting a value from each component color
 	color.getDarker = function(percent) {
-		var sub = parseInt(255 * percent / 100, 10);
-
-		var r = this.r - sub;
-		if (r < 0) {
-			r = 0;
-		}
-
-		var g = this.g - sub;
-		if (g < 0) {
-			g = 0;
-		}
-
-		var b = this.b - sub;
-		if (b < 0) {
-			b = 0;
-		}
-
-
-		var darker = new Color(r, g, b, this.a);
-
-		return darker;
+		return this.getShade(-percent);
 	};
 
 	return color;
