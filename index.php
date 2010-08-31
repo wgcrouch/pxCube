@@ -24,7 +24,7 @@
 					var b = Math.round(Math.random() * 255);
 					var a = Math.round(Math.random()* 100) / 100;
 
-					cube = new Cube({
+					var cube = new Cube({
 						start_x : start_x,
 						start_y : start_y,
 						size : width,
@@ -34,7 +34,7 @@
 					cube.draw(context);
 				}
 				
-				interval = setInterval(random_cube, 10);
+				var interval = setInterval(random_cube, 10);
 
 
 				
